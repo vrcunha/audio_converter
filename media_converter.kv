@@ -1,0 +1,43 @@
+<Media_Converter>
+MDBoxLayout:
+    orientation: 'vertical'
+    MDToolbar:
+        title: 'Media Converter'
+        # right_action_items: [["dots-vertical"]] #, lambda x: app.callback()
+        elevation: 10
+   
+    MDFloatLayout:
+        MDTextField:
+            id: text_field_in
+            hint_text: "Input File"
+            mode: "rectangle"
+            size_hint_x: .5
+            pos_hint: {'center_x': .325, 'center_y': .8}
+
+        MDIconButton:
+            icon: "plus-box"
+            elevation_normal: 12
+            user_font_size: "40sp"
+            pos_hint: {'center_x': .75, 'center_y': .8}
+            on_release: app.file_manager_open()
+
+        MDTextField:
+            id: text_field_out
+            hint_text: "Output File"
+            mode: "rectangle"
+            size_hint_x: .5
+            pos_hint: {'center_x': .325, 'center_y': .5}
+
+        MDDropDownItem:
+            id: drop_item
+            size_hint_x: .2
+            pos_hint: {'center_x': .75, 'center_y': .5}
+            text: 'Output Type'
+            on_release: app.menu.open()
+
+        MDRaisedButton:
+            text: 'Run'
+            font_style: 'H5'
+            size_hint_x: .9
+            pos_hint: {'center_x': .5, 'center_y': .2}
+            on_release: app.convert()
